@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shakti BI Analytics</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            background: #f4f6f9;
+        }
+
+        header {
+            background: linear-gradient(90deg, #1f2937, #111827);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .container {
+            padding: 30px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: 0.3s;
+            position: relative;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-title {
+            padding: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            background: #111827;
+            color: white;
+        }
+
+        iframe {
+            width: 100%;
+            height: 350px;
+            border: none;
+        }
+
+        .fullscreen-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 6px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 12px;
+        }
+
+        .fullscreen-btn:hover {
+            background: #1d4ed8;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background: #111827;
+            color: white;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    Shakti BI Analytics
+</header>
+
+<div class="container">
+
+    <!-- Dashboard 1 -->
+    <div class="card">
+        <div class="card-title">Loss Contribution Analysis Dashboard</div>
+        <button class="fullscreen-btn" onclick="openFullscreen('dash1')">Full View</button>
+        <iframe id="dash1" src="https://app.powerbi.com/view?r=eyJrIjoiM2YyYjlhYWUtOGE5OS00MzQ3LTkzOTItMjU5OWE2ZDhhMmU1IiwidCI6IjkwNDk1N2FhLTViZDEtNGI4ZC04MjMxLTg3NGEzYWYwZjEyMSIsImMiOjEwfQ%3D%3D" loading="lazy"></iframe>
+    </div>
+
+    <!-- Dashboard 2 -->
+    <div class="card">
+        <div class="card-title">Branch Level Performance Report</div>
+        <button class="fullscreen-btn" onclick="openFullscreen('dash2')">Full View</button>
+        <iframe id="dash2" src="https://app.powerbi.com/view?r=eyJrIjoiZDg1N2FlNWYtN2RmYS00M2Q5LWFmYTEtYjYxODhhMjE4MDA1IiwidCI6IjkwNDk1N2FhLTViZDEtNGI4ZC04MjMxLTg3NGEzYWYwZjEyMSIsImMiOjEwfQ%3D%3D" loading="lazy"></iframe>
+    </div>
+
+</div>
+
+<footer>
+    © Shakti BI Analytics
+</footer>
+
+<script>
+function openFullscreen(id) {
+    var iframe = document.getElementById(id);
+    if (iframe.requestFullscreen) {
+        iframe.requestFullscreen();
+    } else if (iframe.webkitRequestFullscreen) {
+        iframe.webkitRequestFullscreen();
+    } else if (iframe.msRequestFullscreen) {
+        iframe.msRequestFullscreen();
+    }
+}
+</script>
+
+</body>
+</html>
