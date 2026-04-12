@@ -43,7 +43,7 @@ body {
     background: #2563eb;
 }
 
-/* Main content */
+/* Main */
 .main {
     flex: 1;
     background: #f4f6f9;
@@ -55,11 +55,36 @@ body {
 .header {
     padding: 15px 20px;
     background: white;
-    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-/* Dashboard area */
+.header-title {
+    font-weight: bold;
+}
+
+/* Buttons */
+.header-buttons button {
+    margin-left: 10px;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.full-btn {
+    background: #2563eb;
+    color: white;
+}
+
+.open-btn {
+    background: #10b981;
+    color: white;
+}
+
+/* Dashboard */
 .dashboard-container {
     flex: 1;
     padding: 20px;
@@ -99,10 +124,19 @@ iframe {
 <!-- Main -->
 <div class="main">
 
-    <div class="header" id="title">
-        Loss Contribution Analysis Dashboard
+    <!-- Header -->
+    <div class="header">
+        <div class="header-title" id="title">
+            Loss Contribution Analysis Dashboard
+        </div>
+
+        <div class="header-buttons">
+            <button class="full-btn" onclick="openFullscreen()">Full View</button>
+            <button class="open-btn" onclick="openNewTab()">Open in New Tab</button>
+        </div>
     </div>
 
+    <!-- Dashboard -->
     <div class="dashboard-container">
         <iframe id="dashboardFrame"
         src="https://app.powerbi.com/view?r=eyJrIjoiM2YyYjlhYWUtOGE5OS00MzQ3LTkzOTItMjU5OWE2ZDhhMmU1IiwidCI6IjkwNDk1N2FhLTViZDEtNGI4ZC04MjMxLTg3NGEzYWYwZjEyMSIsImMiOjEwfQ%3D%3D">
@@ -129,6 +163,23 @@ function loadDashboard(index, element) {
 
     document.querySelectorAll('.menu-item').forEach(el => el.classList.remove('active'));
     element.classList.add('active');
+}
+
+function openFullscreen() {
+    var iframe = document.getElementById("dashboardFrame");
+
+    if (iframe.requestFullscreen) {
+        iframe.requestFullscreen();
+    } else if (iframe.webkitRequestFullscreen) {
+        iframe.webkitRequestFullscreen();
+    } else if (iframe.msRequestFullscreen) {
+        iframe.msRequestFullscreen();
+    }
+}
+
+function openNewTab() {
+    const iframe = document.getElementById("dashboardFrame");
+    window.open(iframe.src, "_blank");
 }
 </script>
 
