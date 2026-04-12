@@ -1,126 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shakti BI Analytics</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shakti BI Analytics</title>
 
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Segoe UI', Tahoma, sans-serif;
-            background: #f4f6f9;
-        }
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
 
-        header {
-            background: linear-gradient(90deg, #1f2937, #111827);
-            color: white;
-            padding: 20px;
-            text-align: center;
-            font-size: 28px;
-            font-weight: bold;
-            letter-spacing: 1px;
-        }
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background: #111827;
+    color: white;
+    padding: 20px;
+}
 
-        .container {
-            padding: 30px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 25px;
-        }
+.sidebar h2 {
+    margin-bottom: 30px;
+    font-size: 20px;
+}
 
-        .card {
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-            overflow: hidden;
-            transition: 0.3s;
-            position: relative;
-        }
+.menu-item {
+    padding: 12px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: 0.3s;
+}
 
-        .card:hover {
-            transform: translateY(-5px);
-        }
+.menu-item:hover {
+    background: #1f2937;
+}
 
-        .card-title {
-            padding: 15px;
-            font-size: 18px;
-            font-weight: bold;
-            background: #111827;
-            color: white;
-        }
+.active {
+    background: #2563eb;
+}
 
-        iframe {
-            width: 100%;
-            height: 350px;
-            border: none;
-        }
+/* Main content */
+.main {
+    flex: 1;
+    background: #f4f6f9;
+    display: flex;
+    flex-direction: column;
+}
 
-        .fullscreen-btn {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: #2563eb;
-            color: white;
-            border: none;
-            padding: 6px 10px;
-            cursor: pointer;
-            border-radius: 5px;
-            font-size: 12px;
-        }
+/* Header */
+.header {
+    padding: 15px 20px;
+    background: white;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
 
-        .fullscreen-btn:hover {
-            background: #1d4ed8;
-        }
+/* Dashboard area */
+.dashboard-container {
+    flex: 1;
+    padding: 20px;
+}
 
-        footer {
-            text-align: center;
-            padding: 15px;
-            background: #111827;
-            color: white;
-            margin-top: 20px;
-        }
-    </style>
+iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 10px;
+}
+
+/* Mobile */
+@media(max-width: 768px) {
+    .sidebar {
+        display: none;
+    }
+}
+</style>
 </head>
 
 <body>
 
-<header>
-    Shakti BI Analytics
-</header>
+<!-- Sidebar -->
+<div class="sidebar">
+    <h2>Shakti BI</h2>
 
-<div class="container">
-
-    <!-- Dashboard 1 -->
-    <div class="card">
-        <div class="card-title">Loss Contribution Analysis Dashboard</div>
-        <button class="fullscreen-btn" onclick="openFullscreen('dash1')">Full View</button>
-        <iframe id="dash1" src="https://app.powerbi.com/view?r=eyJrIjoiM2YyYjlhYWUtOGE5OS00MzQ3LTkzOTItMjU5OWE2ZDhhMmU1IiwidCI6IjkwNDk1N2FhLTViZDEtNGI4ZC04MjMxLTg3NGEzYWYwZjEyMSIsImMiOjEwfQ%3D%3D" loading="lazy"></iframe>
+    <div class="menu-item active" onclick="loadDashboard(0, this)">
+        Loss Contribution Analysis
     </div>
 
-    <!-- Dashboard 2 -->
-    <div class="card">
-        <div class="card-title">Branch Level Performance Report</div>
-        <button class="fullscreen-btn" onclick="openFullscreen('dash2')">Full View</button>
-        <iframe id="dash2" src="https://app.powerbi.com/view?r=eyJrIjoiZDg1N2FlNWYtN2RmYS00M2Q5LWFmYTEtYjYxODhhMjE4MDA1IiwidCI6IjkwNDk1N2FhLTViZDEtNGI4ZC04MjMxLTg3NGEzYWYwZjEyMSIsImMiOjEwfQ%3D%3D" loading="lazy"></iframe>
+    <div class="menu-item" onclick="loadDashboard(1, this)">
+        Branch Performance
+    </div>
+</div>
+
+<!-- Main -->
+<div class="main">
+
+    <div class="header" id="title">
+        Loss Contribution Analysis Dashboard
+    </div>
+
+    <div class="dashboard-container">
+        <iframe id="dashboardFrame"
+        src="https://app.powerbi.com/view?r=eyJrIjoiM2YyYjlhYWUtOGE5OS00MzQ3LTkzOTItMjU5OWE2ZDhhMmU1IiwidCI6IjkwNDk1N2FhLTViZDEtNGI4ZC04MjMxLTg3NGEzYWYwZjEyMSIsImMiOjEwfQ%3D%3D">
+        </iframe>
     </div>
 
 </div>
 
-<footer>
-    © Shakti BI Analytics
-</footer>
-
 <script>
-function openFullscreen(id) {
-    var iframe = document.getElementById(id);
-    if (iframe.requestFullscreen) {
-        iframe.requestFullscreen();
-    } else if (iframe.webkitRequestFullscreen) {
-        iframe.webkitRequestFullscreen();
-    } else if (iframe.msRequestFullscreen) {
-        iframe.msRequestFullscreen();
-    }
+const dashboards = [
+{
+title: "Loss Contribution Analysis Dashboard",
+link: "https://app.powerbi.com/view?r=eyJrIjoiM2YyYjlhYWUtOGE5OS00MzQ3LTkzOTItMjU5OWE2ZDhhMmU1IiwidCI6IjkwNDk1N2FhLTViZDEtNGI4ZC04MjMxLTg3NGEzYWYwZjEyMSIsImMiOjEwfQ%3D%3D"
+},
+{
+title: "Branch Level Performance Report",
+link: "https://app.powerbi.com/view?r=eyJrIjoiZDg1N2FlNWYtN2RmYS00M2Q5LWFmYTEtYjYxODhhMjE4MDA1IiwidCI6IjkwNDk1N2FhLTViZDEtNGI4ZC04MjMxLTg3NGEzYWYwZjEyMSIsImMiOjEwfQ%3D%3D"
+}
+];
+
+function loadDashboard(index, element) {
+    document.getElementById("dashboardFrame").src = dashboards[index].link;
+    document.getElementById("title").innerText = dashboards[index].title;
+
+    document.querySelectorAll('.menu-item').forEach(el => el.classList.remove('active'));
+    element.classList.add('active');
 }
 </script>
 
