@@ -153,7 +153,7 @@ body{font-family:var(--f);background:var(--bg);color:var(--tx);overflow:hidden;d
 .dv{flex:1;display:none;flex-direction:column;min-height:0;padding:18px 24px;gap:0}
 .dv-meta{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:13px;flex-wrap:wrap;gap:8px;flex-shrink:0;animation:fi .28s ease}
 @keyframes fi{from{opacity:0;transform:translateY(5px)}to{opacity:1}}
-.dv-l .dv-title{font-size:17px;font-weight:800;letter-spacing:-.03em;line-height:1.2}
+.dv-l .dv-title{font-size:10px;font-weight:800;letter-spacing:-.03em;line-height:1.2}
 .dv-l .dv-sub{font-size:11.5px;color:var(--tx3);margin-top:3px}
 .dv-r{display:flex;align-items:center;gap:7px}
 
@@ -265,7 +265,7 @@ body{font-family:var(--f);background:var(--bg);color:var(--tx);overflow:hidden;d
       <div class="hero-strip">
         <div class="hero-l">
           <h1>Shakti Insights &amp; Analytics Portal</h1>
-          <p>Your centralised analytics hub. Explore all Power BI reports below — click any dashboard to open it in full interactive view.</p>
+          <p>Our centralised analytics hub. Explore all Power BI reports below - Click any dashboard to open it in full interactive view.</p>
         </div>
         <div class="hero-stats">
           <div class="hstat"><strong id="stat-n">2</strong><span>Reports</span></div>
@@ -351,7 +351,23 @@ const DB = [
     subtitle:"Recovered Members & Amount breakdown by at Team Leader level (Dhaka Zone)",
     link:"https://app.powerbi.com/view?r=eyJrIjoiMjI2NGU3NjAtYThmYi00MmMzLWFmYzUtMDdkZWE0YjE5NmM1IiwidCI6IjkwNDk1N2FhLTViZDEtNGI4ZC04MjMxLTg3NGEzYWYwZjEyMSIsImMiOjEwfQ%3D%3D"
   },
-  {
+   {
+    id:"od team",
+    label:"Od Team Performance",
+    title:"Od Performance by Team Member",
+    category:"Operations",
+    subtitle:"Recovered Members & Amount breakdown by at Team Member level (Dhaka Zone)",
+    link:"https://app.powerbi.com/view?r=eyJrIjoiOTczNmE5ZTMtNTczYy00MDg5LThkOTMtMzdmMTQ4MDQ5NWIwIiwidCI6IjkwNDk1N2FhLTViZDEtNGI4ZC04MjMxLTg3NGEzYWYwZjEyMSIsImMiOjEwfQ%3D%3D"
+  },
+   {
+    id:"performance",
+    label:"Performance Analysis",
+    title:"Performance Analysis Report: FY(25-26)",
+    category:"Operations",
+    subtitle:"Hierarchical Analysis of OE, FC & LLP (Branch–Area–Region–Zone) with Cost-to-Income Ratio and Top/Bottom N Performance.",
+    link:"https://app.powerbi.com/view?r=eyJrIjoiNWYwMzc2MTktMmM0OS00MWQ0LTg1NjItMzQ1ZmI5ZDkzNThkIiwidCI6IjkwNDk1N2FhLTViZDEtNGI4ZC04MjMxLTg3NGEzYWYwZjEyMSIsImMiOjEwfQ%3D%3D"
+  },
+   {
     id:"branch",
     label:"Branch Performance",
     title:"Branch Level Performance Report",
@@ -367,7 +383,6 @@ const DB = [
     subtitle:"KPIs across Regions, Areas, Branches — Net Surplus/Loss, OE, FC and LLP analysis.",
     link:"https://app.powerbi.com/view?r=eyJrIjoiMDllZDFiY2ItZGVhNC00MzJlLWJmODQtZjNlYzI5M2I1NDZhIiwidCI6IjkwNDk1N2FhLTViZDEtNGI4ZC04MjMxLTg3NGEzYWYwZjEyMSIsImMiOjEwfQ%3D%3D"
   }
-  
   /* ── ADD MORE DASHBOARDS BELOW ─────────────────
   ,{
     id:"sales",
